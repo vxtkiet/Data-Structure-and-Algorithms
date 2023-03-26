@@ -1,0 +1,42 @@
+GRAPH - Introductions
+---------------------------------------
+- 2 đỉnh có cạnh nối với nhau là 2 đỉnh kề, cạnh nối giữa 2 đỉnh gọi là cạnh liên thuộc
+- Cung là cạnh có hướng
+---------------------------------------
+- Bậc của đỉnh (deg): đồ thị vô hướng = 2.số cạnh của đồ thị
+- Bán bậc ra (deg+) và bán bậc vào (deg-): đồ thị có hướng
+---------------------------------------
+- Đường đi: điểm đầu điểm cuối khác nhau
+- Chu trình: điểm đầu điểm cuối trùng nhau
+---------------------------------------
+- Liên thông: Đồ thị được gọi là liên thông khi giữa 2 đỉnh bất kì đều có đường đi
+- Số thành phần liên thông: Đồ thị liên thông là đồ thị có số thành phần liên thông là 1
+---------------------------------------
+- Biểu diễn đồ thị bằng ma trận kề:
++) Ma trận a[n+1][n+1] có a[i][j]=1 nếu i và j là 2 đỉnh kề nhau
++) Đồ thị vô hướng:
+	/ Ma trận đối xứng qua đường chéo chính
+	/ Xác định bậc của đỉnh qua việc đếm số lượng số 1 trên hàng i hoặc cột
++) Đồ thị có hướng:
+	/ Xác định bán bậc ra = số lượng số 1 trên hàng đó và bán bậc vào = số lượng số 1 trên cột đó
+---------------------------------------
+- Biểu diễn đồ thị bằng danh sách cạnh:
++) Gồm điểm đầu, điểm cuối
+---------------------------------------
+- Biểu diễn đồ thị bằng danh sách kề
++) Gồm đỉnh : các đỉnh kề
+---------------------------------------
+Thuật toán DFS (Depth-first search): Duyệt theo chiều sâu
+Thuật toán BFS (Breadth-first search): Duyệt theo chiều rộng
+0 1 0 0 1 0 0 1 0 0
+1 0 1 1 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0
+1 0 0 0 0 1 1 0 0 0
+0 0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0
+1 0 0 0 0 0 0 0 1 1
+0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 1 0 0
+
+

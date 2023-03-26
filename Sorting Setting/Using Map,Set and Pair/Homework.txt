@@ -1,0 +1,395 @@
+Bai 1:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n;
+                cin >> n;
+                set<int> s;
+                for(int i=0;i<n;i++)
+                {
+                        int x;
+                        cin >> x;
+                        s.insert(x);
+                }
+                cout << s.size();
+        }
+        return 0;
+}
+
+Bai 2:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n,q;
+                cin >> n;
+                set<int> s;
+                for(int i=0;i<n;i++)
+                {
+                        int x;
+                        cin >> x;
+                        s.insert(x);
+                }
+                cin >> q;
+                while(q--)
+                {
+                        int a;
+                        cin >> a;
+                        if(s.find(a)==s.end())
+                        {
+                                cout << "NO";
+                        }
+                        else
+                        {
+                                cout << "YES";
+                        }
+                }
+        }
+        return 0;
+}
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n,q;
+                cin >> n;
+                map<int,int> ma;
+                for(int i=0;i<n;i++)
+                {
+                        int x;
+                        cin >> x;
+                        ma[i]=x;
+                }
+                cin >> q;
+                while(q--)
+                {
+                        int a;
+                        cin >> a;
+                        if(ma.find(a)==ma.end())
+                        {
+                                cout << "NO";
+                        }
+                        else
+                        {
+                                cout << "YES";
+                        }
+                }
+        }
+        return 0;
+}
+
+Bai 3:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n, m;
+                cin >> n >> m;
+                int a[n];
+                set<int> s;
+                for(int i=0;i<n;i++)
+                {
+                        cin >> a[i];
+                }
+                for(int i=0;i<m;i++)
+                {
+                        int x;
+                        cin >> x;
+                        s.insert(x);
+                }
+                int ok=0;
+                for(int i=0;i<n;i++)
+                {
+                        if(s.find(a[i])==s.end())
+                        {
+                                cout << a[i] << endl;
+                                ok=1;
+                        }
+                }
+                if(ok==0)
+                {
+                        cout << "NO FOUND";
+                }
+
+        }
+        return 0;
+}
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n, m;
+                cin >> n >> m;
+                int a[n];
+                map<int,int> ma;
+                for(int i=0;i<n;i++)
+                {
+                        cin >>a[i];
+                        ma[a[i]]++;
+                }
+                for(int i=0;i<m;i++)
+                {
+                        int x;
+                        cin >> x;
+                        ma[x]++;
+                }
+                int ok=0;
+                for(pair<int,int> x:ma)
+                {
+                        for(int i=0;i<n;i++)
+                        {
+                                if(x.second==1 && x.first==a[i])
+                                {
+                                        cout << a[i] << endl;
+                                        ok=1;
+                                }
+                        }
+                }
+                if(ok=0)
+                {
+                        cout << "NOT FOUND";
+                }
+
+        }
+        return 0;
+}
+
+Bai 4:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        while(t--)
+        {
+                int n, m;
+                cin >> n;
+                int a[n];
+                map<int,int> ma;
+                for(int i=0;i<n;i++)
+                {
+                        int x;
+                        cin >> x;
+                        ma[x]++;
+                }
+                int max=1;
+                int vitri;
+                for(pair<int,int> x:ma)
+                {
+                        if(x.second > max)
+                        {
+                                max = x.second;
+                                vitri = x.first;
+                        }
+                }
+                cout << vitri << " " << max;
+        }
+        return 0;
+}
+
+Bài 5:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        cin.ignore();
+        while(t--)
+        {
+                string s;
+                map<char,int> ma;
+                getline(cin,s);
+                stringstream ss(s);
+                string token;
+                vector<string> v;
+                while(ss >> token)
+                {
+                        v.push_back(token);
+                }
+                for(int i=0;i<v.size();i++)
+                {
+                        for(int j=0;j<v[i].size();j++)
+                        {
+                                ma[v[i][j]]++;
+                        }
+                }
+                int max=0;
+                char kitu;
+                for(pair<char,int> x:ma)
+                {
+                        if(x.second>max)
+                        {
+                                x.second = max;
+                                kitu = x.first;
+                        }
+                }
+                cout << kitu;
+        }
+        return 0;
+}
+
+Bai 6:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        cin.ignore();
+        while(t--)
+        {
+                string s;
+                getline(cin,s);
+                for(int i=0;i<s.size();i++)
+                {
+                        s[i] = tolower(s[i]);
+                }
+                map<char,int> ma;
+                for(int i=0;i<s.size();i++)
+                {
+                        ma[s[i]]++;
+                }
+                if(ma.size()<26)
+                {
+                        cout << "NO";
+                }
+                else
+                {
+                        cout << "YES";
+                }
+        }
+        return 0;
+}
+
+Bai 7:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        cin.ignore();
+        while(t--)
+        {
+               string s;
+               getline(cin,s);
+               set<string> a;
+               stringstream ss(s);
+               string token;
+               while(ss>>token)
+               {
+                       a.insert(token);
+               }
+               cout << a.size() << endl;
+        }
+        return 0;
+}
+
+Bai 8:
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+        cin >> t;
+        cin.ignore();
+        while(t--)
+        {
+               string s;
+               getline(cin,s);
+               map<string,int> ma;
+               stringstream ss(s);
+               string token;
+               while(ss>>token)
+               {
+                       ma[token]++;
+               }
+               int max=0;
+               string b;
+               for(pair<string,int> x:ma)
+               {
+                       if(x.second > max)
+                       {
+                               max = x.second;
+                               b = x.first;
+                       }
+               }
+               cout << b;
+        }
+        return 0;
+}
+
+Bai 9:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin >> t;
+	cin.ignore();
+	while(t--){
+		string s;
+		getline(cin, s);
+		set<string> se;
+		stringstream ss(s);
+		string token;
+		string c;
+		while(ss >> token){
+			if(se.find(token) != se.end()){
+				c = token;
+				break;
+			}
+			se.insert(token);
+		}
+		cout << c << endl;
+	}
+}
+
+Bai 10:
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	map<string,int> ma;
+	cin.ignore();
+	while(n--)
+        {
+                string s;
+                getline(cin,s);
+                if(ma.find(s)== ma.end())
+                {
+                        cout << s << endl;
+                }
+                else
+                {
+                        cout << s << ma[s] << endl;
+                }
+                ma[s]++;
+        }
+        return 0;
+}

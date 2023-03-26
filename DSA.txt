@@ -1,0 +1,39 @@
+- Time complexity:
+	0(1): Hằng số
+	O(logn): binary_search, kiểm tra số nguyên tố, phân 		tích thừa số nguyên tố, các thao tác của set và map
+	O(n): tuyến tính ( nhập mảng, tìm kiếm tuyến tính )
+	O(nlogn), O(n^2)
+
+-Tăng tốc độ thay cin, cout bằng printf() và scanf()
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+- Binary_search: áp dụng sau khi đã sắp xếp mảng theo thứ tự tăng dần O(logn)
+
+- Hàm lower_bound(a.begin(),a.end(),x) trỏ về phần tử đầu tiên lớn hơn hoặc bằng x, nếu mảng toàn số nhỏ hơn x thì trả về iterator cuối cùng 
+	auto it = lower_bound(a.begin(),a.end(),x);
+	cout << *it : Trả về giá trị
+	cout << (it-a.begin()): Trả về vị trí
+
+- Hàm upper_bound(a.begin(),a.end(),x) trỏ đến phần tử đầu tiên lớn hơn x, nếu mảng toàn số nhỏ hơn hoặc bằng x thì trả về iterator cuối cùng
+	auto it = upper_bound(a.begin(),a.end(),x);
+	cout << *it : Trả về giá trị
+	cout << (it-a.begin()): Trả về vị trí
+=> Cả 2 là O(logn)
+
+- Hai con trỏ, cửa sổ trượt, prefix-sum
+------------------------------------------------------------
+
+- Thuật toán sinh:
+	+) Cấu hình đầu tiên
+	+) Cấu hình cuối cùng
+	+) Thuật toán sinh
+-------------------------------------------------------------
+Priority Queue O(logn)
+- Cài đặt maximum heap: priority_queue<int>:
+	+) pq.push(): 
+	+) pq.top(): tìm phần tử ở đầu hàng đợi ( phần tử lớn nhất )
+	+) pq.pop(): xóa phần tử ở đầu hàng đợi ( phần tử lớn nhất )
+
+- Cài đặt minimum heap: priority_queue<int,vector<int>, greater<int>>
+- Lưu được các phần tử giống nhau

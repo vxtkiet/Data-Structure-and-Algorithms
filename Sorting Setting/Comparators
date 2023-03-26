@@ -1,0 +1,124 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ms(s,n) memset(s,n,sizeof(s))
+#define all(a) a.begin(),a.end()
+#define present(t, x) (t.find(x) != t.end())
+#define sz(a) int((a).size())
+#define FOR(i, a, b) for (int i = (a); i < (b); ++i)
+#define FORd(i, a, b) for (int i = (a) - 1; i >= (b); --i)
+#define pb push_back
+#define pf push_front
+#define fi first
+#define se second
+#define mp make_pair
+
+typedef long long ll;
+typedef unsigned long long ull;
+typedef long double ld;
+typedef pair<int,int> pi;
+typedef vector<int> vi;
+typedef vector<pi> vii;
+
+const int MOD = (int) 1e9+7;
+const int INF = (int) 1e9+1;
+inline ll gcd(ll a,ll b){ll r;while(b){r=a%b;a=b;b=r;}return a;}
+inline ll lcm(ll a,ll b){return a/gcd(a,b)*b;}
+
+//Nếu bạn muốn a đứng trước b sau khi sắp xếp thì bạn trả về true
+//Nếu bạn muốn a đứng sau b sau khi sắp xếp thì bạn trả về false
+
+//-nếu 2 từ có cùng chiều thì từ có thứ từ điển nhỏ hơn sẽ đứng trước
+//-nếu 2 từ có cùng chiều dài thì từ xuất hiện trước trong dãy sẽ được in ra trước : stable sort
+//stable_sort(a, a + n, cmp)
+
+bool cmp(string a, string b){
+    return a.length() < b.length();
+}
+
+int tong(int n){
+    int res = 0;
+    while(n){
+        res += n%10;
+        n/=10;
+    }
+    return res;
+}
+
+
+1.sap xep cac so theo trị tuyệt đối giảm dần, nếu 2 số có cùng trị tuyệt đối thì in ra số dương trước
+5
+-2 3 2 1 9
+Output
+9 3 2 -2 1
+
+bool cmp1(int a,int b){
+    if(abs(a) != abs(b))
+        return abs(a) > abs(b);
+    if(a > 0) return true;
+    return false;
+}
+
+bool cmp2(int a,int b){
+    if(tong(a) != tong(b))
+        return tong(a) < tong(b);
+    return a < b;
+}
+
+
+2.Sap xếp theo tổng chữ số theo thứ tự tăng dần, nếu 2 số có cùng tổng chữ số thì in ra số nhỏ hơn trước
+5
+123 321 22 88 16
+Output
+22 123 321 16 88
+
+
+3.Sắp xếp theo trị tuyệt đối với số x theo thứ tự tang dan, nếu 2 số có cùng trị tuyệt đối với x,
+thì số xuất hiện trước sẽ in trước : | a[i] - x | => sắp tang dan
+5 3
+5 3 1 4 12
+
+int x;
+bool cmp3(int a,int b){
+    return abs(x-a) < abs(x-b); 
+}
+
+
+Output
+3 4 5 1 12
+4.Sắp xếp các xâu theo thứ tự chiều dài tăng dần
+4
+java c++ c javasrcipt
+Output
+c c++ java javascript
+
+bool cmp4(string a, string b){
+    return a.length() < b.length();
+}
+
+
+5.Sắp xếp các từ theo thứ tự chiều dài tăng dần, nếu 2 từ có cùng chiều dài thì từ có thứ tự từ điển nhỏ hơn
+sẽ được in ra trước
+4
+java c++ php sql
+Output
+c++ php sql java
+
+bool cmp5(string a, string b){
+    if(a.length() != b.length())
+        return a.length() < b.length();
+    if(a < b)
+        return true;
+    return false;
+}
+int main(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    int n; cin >> n;
+    string a[n];
+    for(auto &x : a) cin >> x;
+    stable_sort(a, a + n, cmp);
+    for(string x : a) cout << x << endl;
+}
